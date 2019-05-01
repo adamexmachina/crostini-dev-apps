@@ -1,7 +1,7 @@
 #! /bin/bash
 #
 # Description:
-#   Install all chromebook linux container apps
+#   Installs web development tools in the Chromebook linux container.
 # Use:
 #   ./install.sh
 

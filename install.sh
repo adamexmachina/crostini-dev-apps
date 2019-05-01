@@ -93,7 +93,7 @@ sudo dpkg -i dbeaver-ce_latest_amd64.deb
 echo "y" | sudo apt --fix-broken install
 
 # Install Gnome Terminal
-sudo apt install gnome-terminal
+echo "y" | sudo apt install gnome-terminal
 
 # Install Apache
 sudo apt install apache2 apache2-utils

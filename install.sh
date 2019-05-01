@@ -70,7 +70,7 @@ wget https://raw.githubusercontent.com/adamexmachina/dotfiles/master/vimrc
 mv vimrc .vimrc
 
 # Install Chromium
-sudo apt install chromium
+echo "y" | sudo apt install chromium
 
 # Install Firefox
 sudo apt install firefox-esr
@@ -121,6 +121,9 @@ gvim || return
 
 # Install Zsh
 sudo apt install git-core zsh
+
+# Remove no longer required packages
+sudo apt autoremove
 
 # Install Oh-My-Zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"

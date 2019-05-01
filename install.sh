@@ -71,8 +71,8 @@ cd ~ || return
 wget https://raw.githubusercontent.com/adamexmachina/dotfiles/master/vimrc
 mv vimrc .vimrc
 
-# Open vim to install plugins
-vim
+# Open Gvim to install plugins
+gvim
 
 # Install Zsh
 sudo apt install git-core zsh

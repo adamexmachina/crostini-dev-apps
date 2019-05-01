@@ -1,3 +1,5 @@
+#! /bin/bash
+#
 # Description:
 #   Installs web development tools in the Chromebook linux container.
 # Use:
@@ -95,7 +97,6 @@ sudo ln -sf /opt/**filezilla3**/bin/filezilla /usr/bin/filezilla
 # Install GitKraken
 wget https://release.gitkraken.com/linux/gitkraken-amd64.deb
 sudo dpkg -i gitkraken-amd64.deb
-}
 
 # Install DBeaver
 wget https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb
@@ -103,5 +104,21 @@ sudo dpkg -i dbeaver-ce_latest_amd64.deb
 
 # Install Gnome Terminal
 sudo apt install gnome-terminal
+
+# Install Apache
+sudo apt install apache2 apache2-utils
+sudo systemctl enable apache2
+sudo apache2 -v
+
+# Install MariaDB
+sudo apt install mariadb-server mariadb-client
+sudo systemctl enable mariadb
+sudo mysql_secure_installation
+
+# Install PHP
+sudo apt install php7.0 nano libapache2-mod-php7.0 php7.0-mysql php-common php7.0-cli php7.0-common php7.0-json php7.0-opcache php7.0-readlin
+sudo a2enmod php7.0
+sudo systemctl restart apache2
+}
 
 main

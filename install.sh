@@ -51,7 +51,7 @@ cd vim || return
   --enable-python3interp \
   --with-python-config-dir=/usr/lib/python3.5/config \
   --enable-perlinterp \
-  --enable-gui=gtk2 \
+  --enable-gui=auto \
   --enable-cscope \
   --prefix=/usr/local
 make VIMRUNTIMEDIR=/usr/share/vim/vim81
@@ -109,6 +109,14 @@ sudo mysql_secure_installation
 sudo apt install php7.0 nano libapache2-mod-php7.0 php7.0-mysql php-common php7.0-cli php7.0-common php7.0-json php7.0-opcache php7.0-readlin
 sudo a2enmod php7.0
 sudo systemctl restart apache2
+
+# Install Exuberant Ctags for YouCompleteMe
+sudo apt install exuberant-ctags
+
+# Run YouCompleteMe installation process
+sudo apt install build-essential cmake python3-dev
+cd ~/.vim/bundle/YouCompleteMe || exit
+./install.py --clang-completer --ts-completer
 
 # Open Gvim to install plugins
 gvim

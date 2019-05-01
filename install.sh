@@ -42,9 +42,9 @@ echo "y" | sudo apt install \
   libperl-dev \
   git
 
-cd ~
+cd ~ || return
 git clone https://github.com/vim/vim.git
-cd vim
+cd vim || return
 ./configure --with-features=huge \
   --enable-multibyte \
   --enable-rubyinterp \
@@ -67,7 +67,7 @@ vim --version
 sudo apt-get install fonts-powerline
 
 # Add vimrc
-cd ~
+cd ~ || return
 wget https://raw.githubusercontent.com/adamexmachina/dotfiles/master/vimrc
 mv vimrc .vimrc
 
@@ -79,7 +79,8 @@ sudo apt install git-core zsh
 
 # Install Oh-My-Zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-chsh -s $(which zsh) # Switch shell from bash to zsh
+sudo usermod -s "$(command -v zsh)" "${USER}"
+chsh -s "$(command -v zsh)" # Switch shell from bash to zsh
 
 # Install Chromium
 sudo apt install chromium
@@ -91,7 +92,7 @@ sudo apt install firefox-esr
 wget https://dl2.cdn.filezilla-project.org/client/FileZilla_3.41.2_i686-linux-gnu.tar.bz2
 tar -xjvf FileZilla_3.41.2_i686-linux-gnu.tar.bz2
 sudo rm -rf /opt/filezilla*
-sudo mv **FileZilla** /opt/**filezilla3**
+sudo mv ./**FileZilla** /opt/**filezilla3**
 sudo ln -sf /opt/**filezilla3**/bin/filezilla /usr/bin/filezilla
 
 # Install GitKraken

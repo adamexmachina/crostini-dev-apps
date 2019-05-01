@@ -71,17 +71,6 @@ cd ~ || return
 wget https://raw.githubusercontent.com/adamexmachina/dotfiles/master/vimrc
 mv vimrc .vimrc
 
-# Open Gvim to install plugins
-gvim
-
-# Install Zsh
-sudo apt install git-core zsh
-
-# Install Oh-My-Zsh
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-sudo usermod -s "$(command -v zsh)" "${USER}"
-chsh -s "$(command -v zsh)" # Switch shell from bash to zsh
-
 # Install Chromium
 sudo apt install chromium
 
@@ -120,6 +109,17 @@ sudo mysql_secure_installation
 sudo apt install php7.0 nano libapache2-mod-php7.0 php7.0-mysql php-common php7.0-cli php7.0-common php7.0-json php7.0-opcache php7.0-readlin
 sudo a2enmod php7.0
 sudo systemctl restart apache2
+
+# Open Gvim to install plugins
+gvim
+
+# Install Zsh
+sudo apt install git-core zsh
+
+# Install Oh-My-Zsh
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sudo usermod -s "$(command -v zsh)" "${USER}"
+chsh -s "$(command -v zsh)" # Switch shell from bash to zsh
 }
 
 main

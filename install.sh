@@ -37,8 +37,6 @@ echo "y" | sudo apt install \
   python-dev \
   python3-dev \
   ruby-dev \
-  lua5.1 \
-  liblua5.1-dev \
   libperl-dev \
   git
 

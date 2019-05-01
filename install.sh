@@ -77,7 +77,7 @@ echo "y" | sudo apt install firefox-esr
 
 # Install Filezilla
 wget https://dl1.cdn.filezilla-project.org/client/FileZilla_3.41.2_x86_64-linux-gnu.tar.bz2?h=BFj_PnBcG8St2Y9mlX-XSQ&x=1556747020
-tar -xjvf https://dl1.cdn.filezilla-project.org/client/FileZilla_3.41.2_x86_64-linux-gnu.tar.bz2
+tar -xjvf FileZilla_3.41.2_x86_64-linux-gnu.tar.bz2
 sudo rm -rf /opt/filezilla*
 sudo mv ./**FileZilla** /opt/**filezilla3**
 sudo ln -sf /opt/**filezilla3**/bin/filezilla /usr/bin/filezilla
@@ -110,6 +110,42 @@ sudo apt install php7.0 nano libapache2-mod-php7.0 php7.0-mysql php-common php7.
 sudo a2enmod php7.0
 sudo systemctl restart apache2
 
+# Install nodejs and npm
+cd ~
+wget https://nodejs.org/dist/v10.15.3/node-v10.15.3-linux-x64.tar.xz
+tar -xjvf node*.tar.xz
+cd node*
+cd bin
+sudo cp node /usr/local/bin
+node -v
+cd ..
+cd lib/node_modules/npm/scripts
+sudo sh install.sh
+npm -v
+
+# Install Docker
+sudo apt remove docker docker-engine docker.io containerd runc
+sudo apt install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg2 \
+    software-properties-common
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/debian \
+   $(lsb_release -cs) \
+   stable"
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo docker run hello-world
+
+# Install Docker Compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
+
 # Install Exuberant Ctags for YouCompleteMe
 sudo apt install exuberant-ctags
 
@@ -130,7 +166,7 @@ sudo apt autoremove
 # Install Oh-My-Zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 sudo usermod -s "$(command -v zsh)" "${USER}"
-chsh -s "$(command -v zsh)" # Switch shell from bash to zsh
+# chsh -s "$(command -v zsh)" # Switch shell from bash to zsh
 }
 
 main

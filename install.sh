@@ -117,7 +117,7 @@ cd ~/.vim/bundle/YouCompleteMe || exit
 ./install.py --clang-completer --ts-completer
 
 # Open Gvim to install plugins
-gvim
+gvim || return
 
 # Install Zsh
 sudo apt install git-core zsh

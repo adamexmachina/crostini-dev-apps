@@ -40,9 +40,9 @@ echo "y" | sudo apt install \
   libperl-dev \
   git
 
-cd ~ || return
+cd ~
 git clone https://github.com/vim/vim.git
-cd vim || return
+cd vim
 ./configure --with-features=huge \
   --enable-multibyte \
   --enable-rubyinterp \
@@ -65,19 +65,19 @@ vim --version
 sudo apt-get install fonts-powerline
 
 # Add vimrc
-cd ~ || return
+cd ~ 
 wget https://raw.githubusercontent.com/adamexmachina/dotfiles/master/vimrc
-mv vimrc .vimrc
+mv ~/vimrc ~/.vimrc
 
 # Install Chromium
 echo "y" | sudo apt install chromium
 
 # Install Firefox
-sudo apt install firefox-esr
+echo "y" | sudo apt install firefox-esr
 
 # Install Filezilla
-wget https://dl2.cdn.filezilla-project.org/client/FileZilla_3.41.2_i686-linux-gnu.tar.bz2
-tar -xjvf FileZilla_3.41.2_i686-linux-gnu.tar.bz2
+wget https://dl1.cdn.filezilla-project.org/client/FileZilla_3.41.2_x86_64-linux-gnu.tar.bz2?h=BFj_PnBcG8St2Y9mlX-XSQ&x=1556747020
+tar -xjvf https://dl1.cdn.filezilla-project.org/client/FileZilla_3.41.2_x86_64-linux-gnu.tar.bz2
 sudo rm -rf /opt/filezilla*
 sudo mv ./**FileZilla** /opt/**filezilla3**
 sudo ln -sf /opt/**filezilla3**/bin/filezilla /usr/bin/filezilla
@@ -85,10 +85,12 @@ sudo ln -sf /opt/**filezilla3**/bin/filezilla /usr/bin/filezilla
 # Install GitKraken
 wget https://release.gitkraken.com/linux/gitkraken-amd64.deb
 sudo dpkg -i gitkraken-amd64.deb
+echo "y" | sudo apt --fix-broken install
 
 # Install DBeaver
 wget https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb
 sudo dpkg -i dbeaver-ce_latest_amd64.deb
+echo "y" | sudo apt --fix-broken install
 
 # Install Gnome Terminal
 sudo apt install gnome-terminal
@@ -111,13 +113,13 @@ sudo systemctl restart apache2
 # Install Exuberant Ctags for YouCompleteMe
 sudo apt install exuberant-ctags
 
+# Open vim to install plugins
+vim || return
+
 # Run YouCompleteMe installation process
 sudo apt install build-essential cmake python3-dev
-cd ~/.vim/bundle/YouCompleteMe || exit
+cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer --ts-completer
-
-# Open Gvim to install plugins
-gvim || return
 
 # Install Zsh
 sudo apt install git-core zsh

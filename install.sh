@@ -3,7 +3,7 @@
 # Description:
 #   Installs web development tools in the Chromebook linux container.
 # Use:
-#   ./install.sh
+#   sudo ./install.sh
 
 main(){
 

@@ -37,4 +37,7 @@ mkdir -p $HOME/.local/share/icons/
 
 sudo printf '[Desktop Entry]\nName=Gvim\nComment=Edit text files\nGenericName=Text Editor\nTryExec=gvim\nVersion=1.0\nExec=gvim -f %%F\nMimeType=text/plain\nCategories=Utility;TextEditor\nTerminal=false\nType=Application\nIcon=~/.local/share/icons/gvim.png\nStartupNotify=true\n' > $HOME/.local/share/applications/gvim.desktop
 
-vim --version
+# Install Exuberant Ctags for YouCompleteMe
+sudo apt install exuberant-ctags
+gvim || return # Open vim to install plugins
+

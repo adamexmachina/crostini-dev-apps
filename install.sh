@@ -1,5 +1,9 @@
 #! /bin/bash
+#
+# Description:
+#   Build and install all web development tools needed for the Chromebook Linux container
+# Use:
+#   sudo sh install.sh
+#
 
-DIR="${BASH_SOURCE%/*}"
-if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
-. "$DIR/vim.sh"
+source vim.sh

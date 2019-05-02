@@ -53,7 +53,11 @@ call plug#end()
 set relativenumber
 set background=dark
 colorscheme solarized
-set guifont=Inconsolata\ for\ Powerline\ 16
+if has("gui_macvim")
+  set guifont=Inconsolata-dz\ for\ Powerline:h16
+else
+  set guifont=Inconsolata\ for\ Powerline\ 16
+endif
 set guioptions=i " HIDE menu, toolbar, scrollbar"
 set hlsearch
 let NERDTreeShowLineNumbers=1 " enable line numbers in NERDTree
@@ -65,6 +69,9 @@ set tabstop=2
 set shiftwidth=2
 set autoindent
 set smartindent
+
+" Set easy tags to write to ~/.vimtags if able if not then create a tag file
+let g:easytags_dynamic_files = 2
 
 " Jump to last position when file is opened
 if has("autocmd")

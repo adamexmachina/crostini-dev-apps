@@ -1,4 +1,4 @@
-ln -sf vimrc ~/.vimrc
+ln -sf $PWD/vimrc ~/.vimrc
 exit
 
 echo "y" | sudo apt install libncurses5-dev libgnome2-dev libgnomeui-dev \

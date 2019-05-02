@@ -14,10 +14,11 @@ set -x #echo on
 . docker.sh
 
 # Install Powerline Fonts
-sudo apt-get install fonts-powerline
+echo "y" | sudo apt-get install fonts-powerline
 
 # Install Chromium
 echo "y" | sudo apt install chromium
+sudo printf '[Desktop Entry]\nName=Chromium\nComment=Web Browser\nGenericName=Web Browser\nTryExec=chromium\nVersion=1.0\nExec=chromium\nMimeType=text/plain\nCategories=Browser;\nTerminal=false\nType=Application\nIcon=chromium\nStartupNotify=true\n' > $HOME/.local/share/applications/chromium.desktop
 
 # Install Firefox
 echo "y" | sudo apt install firefox-esr

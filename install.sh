@@ -5,5 +5,5 @@
 # Use:
 #   sudo bash install.sh
 #
-
+set -x #echo on
 . vim.sh

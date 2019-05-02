@@ -67,5 +67,8 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 sudo usermod -s "$(command -v zsh)" "${USER}"
 # chsh -s "$(command -v zsh)" # Switch shell from bash to zsh
 
+# Install YouCompleteMe
+. youcompleteme.sh
+
 # Remove no longer required packages
 echo "y" | sudo apt autoremove

@@ -6,4 +6,4 @@
 #   sudo sh install.sh
 #
 
-source vim.sh
+. vim.sh

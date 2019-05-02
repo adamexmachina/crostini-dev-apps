@@ -1,12 +1,11 @@
-rm ~/.vimrc
-ln -s vimrc ~/.vimrc
+ln -sf vimrc ~/.vimrc
 
 echo "y" | sudo apt install libncurses5-dev libgnome2-dev libgnomeui-dev \
   libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
   libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev \
-  python3-dev ruby-dev git build-dep vim-gtk
+  python3-dev ruby-dev git vim-gtk
 
-sudo apt remove vi vim vim-runtime gvim vim-tiny vim-common vim-gui-common vim-nox
+sudo apt remove vim vim-runtime gvim vim-tiny vim-common vim-gui-common vim-nox
 
 cd $HOME
 

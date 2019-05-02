@@ -41,6 +41,9 @@ sudo update-alternatives --set vi /usr/local/bin/vim
 rm $HOME/.vimrc
 ln -s $PWD/vimrc $HOME/.vimrc
 
-sudo printf '[Desktop Entry]\nName=Gvim\nComment=Edit text files\nGenericName=Text Editor\nTryExec=gvim\nVersion=1.0\nExec=gvim -f %%F\nMimeType=text/plain\nCategories=Utility;TextEditor\nTerminal=false\nType=Application\nIcon=gvim\nStartupNotify=true\n' > /usr/share/applications/gvim.desktop
+mkdir -p $HOME/.local/share/applications/
+mkdir -p $HOME/.local/share/icons/
+
+sudo printf '[Desktop Entry]\nName=Gvim\nComment=Edit text files\nGenericName=Text Editor\nTryExec=gvim\nVersion=1.0\nExec=gvim -f %%F\nMimeType=text/plain\nCategories=Utility;TextEditor\nTerminal=false\nType=Application\nIcon=gvim\nStartupNotify=true\n' > $HOME/.local/share/applications/gvim.desktop
 
 vim --version

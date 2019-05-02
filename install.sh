@@ -6,4 +6,5 @@
 #   sudo bash install.sh
 #
 set -x #echo on
+set expand-tilde off
 . vim.sh

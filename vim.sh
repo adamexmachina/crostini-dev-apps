@@ -1,5 +1,5 @@
 VIMRC="~/.vimrc"
-ln -sf vimrc eval "$VIMRC"
+ln -sf vimrc "$VIMRC"
 exit
 
 echo "y" | sudo apt install libncurses5-dev libgnome2-dev libgnomeui-dev \

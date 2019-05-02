@@ -7,12 +7,6 @@
 #
 set -x #echo on
 
-# Install Vim
-. vim.sh
-
-# Install nodejs, npm, docker, docker-compose
-. docker.sh
-
 # Install Powerline Fonts
 echo "y" | sudo apt-get install fonts-powerline
 
@@ -64,11 +58,8 @@ echo "y" | sudo apt install git-core zsh
 
 # Install Oh-My-Zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-sudo usermod -s "$(command -v zsh)" "${USER}"
-# chsh -s "$(command -v zsh)" # Switch shell from bash to zsh
-
-# Install YouCompleteMe
-. youcompleteme.sh
+# sudo usermod -s "$(command -v zsh)" "${USER}"
+chsh -s "$(command -v zsh)" # Switch shell from bash to zsh
 
 # Remove no longer required packages
 echo "y" | sudo apt autoremove

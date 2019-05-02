@@ -1,4 +1,10 @@
 #! /bin/bash
+#
+# Description:
+#   Build vim from source with Python 3 support.
+# Use:
+#   sudo sh vim.sh
+#
 
 echo "y" | sudo apt install libncurses5-dev libgnome2-dev libgnomeui-dev \
   libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \

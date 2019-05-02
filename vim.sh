@@ -32,7 +32,7 @@ sudo update-alternatives --install /usr/bin/vi vi /usr/local/bin/vim 1
 sudo update-alternatives --set vi /usr/local/bin/vim
 
 rm $HOME/.vimrc
-ln -s SCRIPT_PATH/vimrc $HOME/.vimrc
+ln -s $SCRIPT_PATH/vimrc $HOME/.vimrc
 
 mkdir -p $HOME/.local/share/applications/
 mkdir -p $HOME/.local/share/icons/

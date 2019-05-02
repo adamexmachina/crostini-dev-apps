@@ -3,7 +3,7 @@
 # Description:
 #   Installs web development tools in the Chromebook linux container.
 # Use:
-#   sudo ./install.sh
+#   sudo sh install.sh
 
 main(){
 
@@ -93,28 +93,28 @@ sudo dpkg -i dbeaver-ce_latest_amd64.deb
 echo "y" | sudo apt --fix-broken install
 
 # Install Gnome Terminal
-sudo apt install gnome-terminal
+echo "y" | sudo apt install gnome-terminal
 
 # Install Apache
-sudo apt install apache2 apache2-utils
+echo "y" | sudo apt install apache2 apache2-utils
 sudo systemctl enable apache2
 sudo apache2 -v
 
 # Install MariaDB
-sudo apt install mariadb-server mariadb-client
+echo "y" | sudo apt install mariadb-server mariadb-client
 sudo systemctl enable mariadb
 sudo mysql_secure_installation
 
 # Install PHP
-sudo apt install php7.0 nano libapache2-mod-php7.0 php7.0-mysql php-common php7.0-cli php7.0-common php7.0-json php7.0-opcache php7.0-readlin
+echo "y" | sudo apt install php7.0 nano libapache2-mod-php7.0 php7.0-mysql php-common php7.0-cli php7.0-common php7.0-json php7.0-opcache php7.0-readlin
 sudo a2enmod php7.0
 sudo systemctl restart apache2
 
 # Install nodejs and npm
 cd ~
 wget https://nodejs.org/dist/v10.15.3/node-v10.15.3-linux-x64.tar.xz
-tar -xjvf node*.tar.xz
-cd node*
+tar -xf node-v10.15.3-linux-x64.tar.xz
+cd node-v10.15.3-linux-x64
 cd bin
 sudo cp node /usr/local/bin
 node -v
@@ -125,7 +125,7 @@ npm -v
 
 # Install Docker
 sudo apt remove docker docker-engine docker.io containerd runc
-sudo apt install \
+echo "y" | sudo apt install \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -138,7 +138,7 @@ sudo add-apt-repository \
    $(lsb_release -cs) \
    stable"
 sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+echo "y" | sudo apt-get install docker-ce docker-ce-cli containerd.io
 sudo docker run hello-world
 
 # Install Docker Compose
@@ -147,18 +147,17 @@ sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 
 # Install Exuberant Ctags for YouCompleteMe
-sudo apt install exuberant-ctags
-
-# Open vim to install plugins
+sudo apt install exuberant-ctags # Open vim to install plugins
 vim || return
 
 # Run YouCompleteMe installation process
-sudo apt install build-essential cmake python3-dev
-cd ~/.vim/bundle/YouCompleteMe
+echo "y" | sudo apt install build-essential cmake python3-dev
+cd ~
+cd .vim/bundle/YouCompleteMe
 ./install.py --clang-completer --ts-completer
 
 # Install Zsh
-sudo apt install git-core zsh
+echo "y" | sudo apt install git-core zsh
 
 # Remove no longer required packages
 sudo apt autoremove

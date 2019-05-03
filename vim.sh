@@ -1,4 +1,4 @@
-ln -sf $PWD/vimrc ~/.vimrc
+ln -sf $PWD/vimrc $HOME/.vimrc
 
 echo "y" | sudo apt install libncurses5-dev libgnome2-dev libgnomeui-dev \
   libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
@@ -27,17 +27,10 @@ make VIMRUNTIMEDIR=/usr/local/share/vim/vim81
 
 cd $HOME/vim
 sudo make install
-sudo update-alternatives --install /usr/bin/editor editor /usr/local/bin/vim 1
-sudo update-alternatives --set editor /usr/local/bin/vim
-sudo update-alternatives --install /usr/bin/vi vi /usr/local/bin/vim 1
-sudo update-alternatives --set vi /usr/local/bin/vim
 
-mkdir -p $HOME/.local/share/applications/
-mkdir -p $HOME/.local/share/icons/
+sudo printf '[Desktop Entry]\n Name=GVim\n GenericName=Text Editor\n Comment=Edit text files\n TryExec=gvim\n Exec=gvim -f %%F\n Terminal=fals%e Type=Application\n Icon=gvim\n Categories=Utility;TextEditor;\n StartupNotify=true\n MimeType=text/plain;' > $HOME/gvim.desktop
 
-sudo printf '[Desktop Entry]\nName=Gvim\nComment=Edit text files\nGenericName=Text Editor\nTryExec=gvim\nVersion=1.0\nExec=gvim -f %%F\nMimeType=text/plain\nCategories=Utility;TextEditor\nTerminal=false\nType=Application\nIcon=~/.local/share/icons/gvim.png\nStartupNotify=true\n' > $HOME/.local/share/applications/gvim.desktop
+cd $HOME
+sudo desktop-file-install gvim.desktop
 
-# Install Exuberant Ctags for YouCompleteMe
-sudo apt install exuberant-ctags
 gvim || return # Open vim to install plugins
-

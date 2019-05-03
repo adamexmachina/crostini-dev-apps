@@ -8,8 +8,8 @@ endif
 call plug#begin()
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-matchquote'
+Plug 'ajh17/VimCompletesMe'
 Plug 'altercation/vim-colors-solarized'
-Plug 'Valloric/YouCompleteMe'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'elzr/vim-json'
